@@ -40,7 +40,7 @@ class SignupActivate extends Notification
      */
     public function toMail($notifiable)
     {
-        $url = url('/api/v1/register/activate'.$notifiable->activatopn_token);
+        $url = url('/api/v1/register/activate/'.$notifiable->activation_token);
         return (new MailMessage)
                     ->subject('فعالسازی اکانت کاربری')
                     ->line('با تشکر از ثبت نام شما ، جهت فعالسازی اکانت کاربری بر روی دکمه فعالسازی اکانت کلیک نمایید')

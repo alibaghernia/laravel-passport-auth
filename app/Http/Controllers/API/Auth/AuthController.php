@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -18,7 +19,8 @@ class AuthController extends Controller
         }
 
         $user->active = true ;
-        $user->activaton_token = '';
+        $user->activation_token = '';
+        $user->email_verified_at = Carbon::now();
         $user->save();
         return $user;
 

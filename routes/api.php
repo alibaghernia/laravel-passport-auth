@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,12 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('register', 'API\Auth\RegisterController@signup');
     Route::post('login', 'API\Auth\LoginController@login');
 
-    Route::get('register/activate/{token}' , 'API\Auth\AuthController@signupActivate');
+    Route::get('register/activate/{token}', 'API\Auth\AuthController@signupActivate');
 
+    // Authorized Routes API
+    Route::middleware(["auth:api"], EnsureEmailIsVerified::class)->group(function () {
+
+        Route::get('profile', 'API\Auth\ProfileController@index');
+        Route::get('logout', 'API\Auth\LogoutController@index');
+    });
 });

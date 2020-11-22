@@ -23,4 +23,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('register', 'API\Auth\RegisterController@signup');
     Route::post('login', 'API\Auth\LoginController@login');
 
+    Route::get('register/activate/{token}' , 'API\Auth\AuthController@signupActivate');
+
 });

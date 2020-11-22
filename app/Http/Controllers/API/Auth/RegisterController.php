@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Notifications\SignupActivate;
 
 class RegisterController extends Controller
 {
@@ -36,6 +37,8 @@ class RegisterController extends Controller
             return response()->json(['message' => $validator->errors()->first(), 'status' => false], 500);
         } else {
             $user->save();
+
+            $user->notify(new SignupActivate($user));
 
             return response()->json([
                 'message' => 'Succsessfully create user!'

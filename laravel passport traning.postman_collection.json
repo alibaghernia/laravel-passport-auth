@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "e2cf7be8-18c6-4851-b067-5b4d555efc45",
+		"name": "laravel passport traning",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Un Authenticade APIS",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"first_name\": \"User\",\r\n    \"last_name\": \"Example\",\r\n    \"phone_number\": \"{{$randomPhoneNumber}}\",\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"useruser\",\r\n    \"password_confirmation\": \"useruser\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@example.com\",\r\n    \"password\": \"useruser\",\r\n    \"remember_me\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authenticades APIS",
+			"item": [
+				{
+					"name": "get user Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTExOTQzMTRkM2I1NjY3Mzg4ZTBiYWUxYzU2YWJhNWQxMzVhZjBjMzM0NzFkNTIwOTMxOTk3MGY1OGYxNmNkOGQ2OTJhYzg0NmE5M2RkZDYiLCJpYXQiOjE2MDYwNzQ2NTcsIm5iZiI6MTYwNjA3NDY1NywiZXhwIjoxNjIxNzEzMDU3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.asBjmlM8j4Qr9zpk9UYmMK0PvCFZpgTbj9eT0NfTsji75Bq4MF0RaDFgbRCeRSP354vkMJqvc7kaejiAj62gKrWBECZ91uXuXavWeL-hUDAp0uOeJNo0szOx8qR8Z3NQlIT1wiSMuWZR25rCNh-NNrkAd737qJcCZMXnGEbBNwFKwBHBtLqVEpwEFrjELiYTzNIHIAHexIwgLDDelywT_VDl9INP_qMnoGbMONYsoVt6auVXZ3gkHZ-nliufrTDWhFUGTvRfM2A4umBhGMHH3q_7oiXnH5nvvvDVuplsztOF-pVOb5QnYmbqYMb-025NHP3mYG27MBCvArQxQRsKu45H3RTyOHAiTaaNOl_rlvvzOyVP-cmDy_ays5EeXH2s1xUY_W16cfwri28Lulws2Q8PFxwinpwCVeNHzmcaNQ1haTP_SaNFfv726wfSkP_zZ0CxTelurvbUGZOA7XHBXiX43qvnF_mufd79CfF3rWiPF8w0OZCW3Hy_BsLBQ5e91N8QnVaZAmDFVJh50_nV3mvcEdIY61YJf0r2-hsDmbB1OVescixD2zC2AGRsItmWDjyX-uqNWCGUyvhGZYm5OhySArbNCxyWgZrcu0h9UnxzfADmkph7PM2q-vRF9GbYOhg2Lj0NfndaGs9tj2M49S_0xIhlhVZjxc0A1D6PkXo",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "611511b9-c4cd-4ec4-bad8-c0540e590de2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "378d8034-4198-4b25-b71c-f7ad30f41f5a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

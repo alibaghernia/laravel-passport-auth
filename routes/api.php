@@ -30,6 +30,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::middleware(["auth:api"], EnsureEmailIsVerified::class)->group(function () {
 
         Route::get('profile', 'API\Auth\ProfileController@index');
-        Route::get('logout', 'API\Auth\LogoutController@index');
+        Route::get('logout', 'API\Auth\ProfileController@index');
     });
 });

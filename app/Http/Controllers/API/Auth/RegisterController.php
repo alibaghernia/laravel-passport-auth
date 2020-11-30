@@ -22,6 +22,10 @@ class RegisterController extends Controller
             'phone_number' => ['required', 'unique:users', 'string', 'max:255'],
             'password' => ['required', 'string', 'confirmed', 'min:8'],
         ]);
+        
+        if ($validator->fails()) {
+            return response()->json(['message' => $validator->errors()->first(), 'status' => false], 500);
+        } 
 
         $user = new User([
             'username' => $request->username,
@@ -33,9 +37,7 @@ class RegisterController extends Controller
             'activation_token' => Str::random(60),
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['message' => $validator->errors()->first(), 'status' => false], 500);
-        } else {
+        
             $user->save();
 
             $user->notify(new SignupActivate($user));
@@ -43,6 +45,6 @@ class RegisterController extends Controller
             return response()->json([
                 'message' => 'Succsessfully create user!'
             ], 201);
-        }
+        
     }
 }

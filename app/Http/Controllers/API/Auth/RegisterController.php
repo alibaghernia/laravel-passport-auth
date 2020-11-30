@@ -34,7 +34,7 @@ class RegisterController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['message' => $validator->errors()->first(), 'status' => false], 500);
+            return response()->json(['message' => $validator->errors()->first(), 'status' => false], 400);
         } else {
             $user->save();
 
